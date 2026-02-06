@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { getSiteContent } from '../../../../lib/siteContent';
+import RopeDivider from '../../../../components/RopeDivider.astro';
 
 const lang = 'cn' as const;
 const content = getSiteContent(lang);
@@ -18,6 +19,9 @@ const alternates = { cn: '/cn/products/wire-rope-sling/', en: '/en/products/wire
   <section class="section">
     <div class="container">
       <div class="h1">钢丝绳索具</div>
+      <div style="margin:10px 0 6px;">
+        <RopeDivider thickness={10} maxWidth="460px" />
+      </div>
       <div class="muted" style="max-width:860px;">
         按系列提供参数说明与选型建议，不展示实时价格。可按载荷、长度、端部形式与工况要求定制。
       </div>

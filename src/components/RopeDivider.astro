@@ -1,0 +1,16 @@
+---
+type Props = {
+  thickness?: number;
+  maxWidth?: string;
+  align?: 'left' | 'center' | 'right';
+  muted?: boolean;
+};
+
+const { thickness = 10, maxWidth = '560px', align = 'left', muted = false } = Astro.props;
+const alignItems = align === 'left' ? 'flex-start' : align === 'right' ? 'flex-end' : 'center';
+---
+
+<div class="rope-divider-wrap" style={`--rope-thickness:${thickness}px; --rope-max:${maxWidth}; --rope-align:${alignItems};`}>
+  <span class={`rope-divider ${muted ? 'rope-divider--muted' : ''}`} aria-hidden="true"></span>
+</div>
+

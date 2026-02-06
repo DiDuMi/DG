@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
 import { getSiteContent } from '../../../../lib/siteContent';
+import RopeDivider from '../../../../components/RopeDivider.astro';
 
 const lang = 'en' as const;
 const content = getSiteContent(lang);
@@ -18,6 +19,9 @@ const alternates = { cn: '/cn/products/wire-rope-sling/', en: '/en/products/wire
   <section class="section">
     <div class="container">
       <div class="h1">Wire Rope Sling</div>
+      <div style="margin:10px 0 6px;">
+        <RopeDivider thickness={10} maxWidth="460px" />
+      </div>
       <div class="muted" style="max-width:860px;">
         Series-based specification with selection guidance. No live pricing. Customization available for load, length, end fittings, and working conditions.
       </div>

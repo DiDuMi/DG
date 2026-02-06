@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getSiteContent } from '../../lib/siteContent';
+import RopeDivider from '../../components/RopeDivider.astro';
 
 const lang = 'en' as const;
 const content = getSiteContent(lang);
@@ -15,14 +16,19 @@ const alternates = { cn: '/cn/', en: '/en/' };
   canonicalPath={canonicalPath}
   alternates={alternates}
 >
-  <section class="section">
+  <section class="section section-hero">
     <div class="container">
-      <div class="kicker">{content.keywords.join(' · ')}</div>
-      <div class="h1">{content.home.heroTitle}</div>
-      <div class="muted" style="font-size:16px; max-width:820px;">{content.home.heroSubtitle}</div>
-      <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
-        <a class="btn btn-accent" href="/en/contact/">{content.cta.contact}</a>
-        <a class="btn" href="/en/products/">{content.nav.products}</a>
+      <div class="hero-card">
+        <div class="kicker">{content.keywords.join(' · ')}</div>
+        <div style="margin:12px 0 6px;">
+          <RopeDivider thickness={9} maxWidth="520px" muted />
+        </div>
+        <div class="h1">{content.home.heroTitle}</div>
+        <div class="muted lead">{content.home.heroSubtitle}</div>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="/en/contact/">{content.cta.contact}</a>
+          <a class="btn" href="/en/products/">{content.nav.products}</a>
+        </div>
       </div>
     </div>
   </section>
@@ -44,7 +50,7 @@ const alternates = { cn: '/cn/', en: '/en/' };
     <div class="container">
       <div class="grid grid-2">
         {content.home.productEntrances.map((p) => (
-          <a class="panel" href={p.href} style="display:block;">
+          <a class="panel panel-link" href={p.href}>
             <div class="h2">{p.title}</div>
             <div class="muted">{content.cta.getSpec} →</div>
           </a>
@@ -57,11 +63,9 @@ const alternates = { cn: '/cn/', en: '/en/' };
     <div class="container">
       <div class="panel">
         <div class="h2">{content.nav.applications}</div>
-        <div class="muted" style="display:flex; gap:10px; flex-wrap:wrap;">
+        <div class="muted chip-row">
           {content.home.industries.map((x) => (
-            <span style="padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,0.03);">
-              {x}
-            </span>
+            <span class="chip">{x}</span>
           ))}
         </div>
       </div>

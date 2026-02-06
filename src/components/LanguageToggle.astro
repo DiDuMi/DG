@@ -10,7 +10,7 @@ type Props = {
 const { current, hrefCn, hrefEn } = Astro.props;
 ---
 
-<div style="display:flex; gap:8px; align-items:center;">
+<div class="lang-toggle">
   <a class={`btn ${current === 'cn' ? 'btn-accent' : ''}`} href={hrefCn}>{languageNames.cn}</a>
   <a class={`btn ${current === 'en' ? 'btn-accent' : ''}`} href={hrefEn}>{languageNames.en}</a>
 </div>
