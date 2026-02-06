@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../../lib/siteContent';
+
+const lang = 'cn' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/cn/products/piling-machine-parts/';
+const alternates = { cn: '/cn/products/piling-machine-parts/', en: '/en/products/piling-machine-parts/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName}｜桩机配件`}
+  description="桩机配件分类与适配说明，支持材料工艺与参数下载。"
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">桩机配件</div>
+      <div class="muted" style="max-width:860px;">
+        按配件分类展示，提供适配设备说明、材料与工艺说明。可根据设备型号与工况进行配套与定制。
+      </div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">分类示例</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>易损件与结构件</div>
+            <div>连接件与紧固件</div>
+            <div>定制加工件</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="h2">参数与下载</div>
+          <div class="muted" style="display:grid; gap:10px;">
+            <a class="btn" href="/downloads/spec-example.pdf" download>{content.cta.getSpec}</a>
+            <div>如需适配清单，请提供设备型号与现场工况。</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a class="btn btn-accent" href="/cn/contact/">{content.cta.contact}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

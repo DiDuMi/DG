@@ -1,0 +1,57 @@
+{
+  "siteName": "固顿（GUDUN）",
+  "tagline": "钢丝绳索具与桩机配件制造与定制",
+  "keywords": ["Strength", "Safety", "Custom", "Engineering"],
+  "nav": {
+    "home": "首页",
+    "about": "关于固顿",
+    "products": "产品中心",
+    "applications": "应用场景",
+    "certifications": "资质与案例",
+    "contact": "联系我们"
+  },
+  "cta": {
+    "contact": "联系我们",
+    "getSpec": "获取参数"
+  },
+  "home": {
+    "heroTitle": "工业级制造 · 质量可追溯 · 支持定制",
+    "heroSubtitle": "面向工程建设与重型施工领域，提供可靠的钢丝绳索具与桩机配件。",
+    "advantages": [
+      {
+        "title": "原材料与标准",
+        "desc": "按行业标准选材与检验，关键参数可追溯。"
+      },
+      {
+        "title": "生产与质检",
+        "desc": "过程管控与出厂检测，强调一致性与可靠性。"
+      },
+      {
+        "title": "定制能力",
+        "desc": "按工况、载荷与接口要求进行适配与定制。"
+      },
+      {
+        "title": "交付与服务",
+        "desc": "交付稳定，支持技术沟通与使用建议。"
+      }
+    ],
+    "productEntrances": [
+      {
+        "title": "钢丝绳索具",
+        "href": "/cn/products/wire-rope-sling/"
+      },
+      {
+        "title": "桩机配件",
+        "href": "/cn/products/piling-machine-parts/"
+      }
+    ],
+    "industries": ["桩基础工程", "吊装工程", "重型施工"]
+  },
+  "contactInfo": {
+    "phone": "",
+    "email": "",
+    "whatsapp": "",
+    "wechat": "",
+    "address": ""
+  }
+}

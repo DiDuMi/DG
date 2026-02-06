@@ -1,0 +1,16 @@
+---
+import { languageNames, type Language } from '../lib/i18n';
+
+type Props = {
+  current: Language;
+  hrefCn: string;
+  hrefEn: string;
+};
+
+const { current, hrefCn, hrefEn } = Astro.props;
+---
+
+<div style="display:flex; gap:8px; align-items:center;">
+  <a class={`btn ${current === 'cn' ? 'btn-accent' : ''}`} href={hrefCn}>{languageNames.cn}</a>
+  <a class={`btn ${current === 'en' ? 'btn-accent' : ''}`} href={hrefEn}>{languageNames.en}</a>
+</div>

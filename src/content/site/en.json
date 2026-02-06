@@ -1,0 +1,57 @@
+{
+  "siteName": "GUDUN",
+  "tagline": "Wire Rope Slings & Piling Machine Parts",
+  "keywords": ["Strength", "Safety", "Custom", "Engineering"],
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "applications": "Applications",
+    "certifications": "Certifications & Cases",
+    "contact": "Contact"
+  },
+  "cta": {
+    "contact": "Contact Us",
+    "getSpec": "Get Specification"
+  },
+  "home": {
+    "heroTitle": "Industrial Manufacturing · Traceable Quality · Custom Capability",
+    "heroSubtitle": "Serving construction and heavy-duty engineering with reliable products and clear specifications.",
+    "advantages": [
+      {
+        "title": "Materials & Standards",
+        "desc": "Materials and inspection aligned with industry standards; key parameters are traceable."
+      },
+      {
+        "title": "Production & QC",
+        "desc": "Process control and outgoing inspection, focusing on consistency and reliability."
+      },
+      {
+        "title": "Custom Capability",
+        "desc": "Customization for load, working conditions, and connection requirements."
+      },
+      {
+        "title": "Delivery & Support",
+        "desc": "Stable lead time with responsive technical communication."
+      }
+    ],
+    "productEntrances": [
+      {
+        "title": "Wire Rope Sling",
+        "href": "/en/products/wire-rope-sling/"
+      },
+      {
+        "title": "Piling Machine Parts",
+        "href": "/en/products/piling-machine-parts/"
+      }
+    ],
+    "industries": ["Piling Foundations", "Lifting & Rigging", "Heavy Construction"]
+  },
+  "contactInfo": {
+    "phone": "",
+    "email": "",
+    "whatsapp": "",
+    "wechat": "",
+    "address": ""
+  }
+}

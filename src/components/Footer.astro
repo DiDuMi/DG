@@ -1,0 +1,46 @@
+---
+import type { Language } from '../lib/i18n';
+import type { SiteContent } from '../lib/siteContent';
+
+type Props = {
+  lang: Language;
+  content: SiteContent;
+};
+
+const { content } = Astro.props;
+const phone = import.meta.env.PUBLIC_CONTACT_PHONE || content.contactInfo.phone;
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL || content.contactInfo.email;
+const whatsapp = import.meta.env.PUBLIC_CONTACT_WHATSAPP || content.contactInfo.whatsapp;
+const wechat = import.meta.env.PUBLIC_CONTACT_WECHAT || content.contactInfo.wechat;
+const address = import.meta.env.PUBLIC_COMPANY_ADDRESS || content.contactInfo.address;
+---
+
+<footer style="border-top:1px solid var(--border); margin-top:40px;">
+  <div class="container" style="padding:28px 20px;">
+    <div class="grid grid-3">
+      <div class="panel">
+        <div class="h2">Contact</div>
+        <div class="muted" style="display:grid; gap:8px;">
+          {phone ? <div>Tel: {phone}</div> : <div>Tel: </div>}
+          {email ? <div>Email: <a href={`mailto:${email}`}>{email}</a></div> : <div>Email: </div>}
+          {whatsapp ? <div>WhatsApp: {whatsapp}</div> : <div>WhatsApp: </div>}
+          {wechat ? <div>WeChat: {wechat}</div> : <div>WeChat: </div>}
+        </div>
+      </div>
+      <div class="panel">
+        <div class="h2">Address</div>
+        <div class="muted">{address || ''}</div>
+      </div>
+      <div class="panel">
+        <div class="h2">Links</div>
+        <div class="muted" style="display:grid; gap:8px;">
+          <a href="/cn/">中文</a>
+          <a href="/en/">English</a>
+        </div>
+      </div>
+    </div>
+    <div class="muted" style="margin-top:18px; font-size:12px;">
+      © {new Date().getFullYear()} GUDUN
+    </div>
+  </div>
+</footer>

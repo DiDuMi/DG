@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../../lib/siteContent';
+
+const lang = 'en' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/en/products/piling-machine-parts/';
+const alternates = { cn: '/cn/products/piling-machine-parts/', en: '/en/products/piling-machine-parts/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName} | Piling Machine Parts`}
+  description="Categories and fitment notes for piling machine parts with material/process highlights and PDF downloads."
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">Piling Machine Parts</div>
+      <div class="muted" style="max-width:860px;">
+        Parts are categorized with fitment notes, material and process highlights. We support matching to your machine model and job conditions.
+      </div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">Categories</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>Wear parts & structural parts</div>
+            <div>Connectors & fasteners</div>
+            <div>Custom-machined components</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="h2">Specs</div>
+          <div class="muted" style="display:grid; gap:10px;">
+            <a class="btn" href="/downloads/spec-example.pdf" download>{content.cta.getSpec}</a>
+            <div>For a fitment list, share your machine model and site conditions.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a class="btn btn-accent" href="/en/contact/">{content.cta.contact}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

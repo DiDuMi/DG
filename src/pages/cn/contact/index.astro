@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../lib/siteContent';
+import ContactForm from '../../../components/ContactForm.astro';
+
+const lang = 'cn' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/cn/contact/';
+const alternates = { cn: '/cn/contact/', en: '/en/contact/' };
+const phone = import.meta.env.PUBLIC_CONTACT_PHONE || content.contactInfo.phone;
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL || content.contactInfo.email;
+const whatsapp = import.meta.env.PUBLIC_CONTACT_WHATSAPP || content.contactInfo.whatsapp;
+const wechat = import.meta.env.PUBLIC_CONTACT_WECHAT || content.contactInfo.wechat;
+const address = import.meta.env.PUBLIC_COMPANY_ADDRESS || content.contactInfo.address;
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName}｜${content.nav.contact}`}
+  description="获取联系方式或提交需求信息。"
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">{content.nav.contact}</div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">联系方式</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>电话：{phone || ''}</div>
+            <div>邮箱：{email ? <a href={`mailto:${email}`}>{email}</a> : ''}</div>
+            <div>WhatsApp：{whatsapp || ''}</div>
+            <div>微信：{wechat || ''}</div>
+            <div>地址：{address || ''}</div>
+          </div>
+        </div>
+        <ContactForm content={content} />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

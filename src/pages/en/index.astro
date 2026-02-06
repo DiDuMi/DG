@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../lib/siteContent';
+
+const lang = 'en' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/en/';
+const alternates = { cn: '/cn/', en: '/en/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName} | ${content.nav.home}`}
+  description={content.home.heroSubtitle}
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="kicker">{content.keywords.join(' · ')}</div>
+      <div class="h1">{content.home.heroTitle}</div>
+      <div class="muted" style="font-size:16px; max-width:820px;">{content.home.heroSubtitle}</div>
+      <div style="display:flex; gap:12px; margin-top:18px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="/en/contact/">{content.cta.contact}</a>
+        <a class="btn" href="/en/products/">{content.nav.products}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        {content.home.advantages.map((a) => (
+          <div class="panel">
+            <div class="h2">{a.title}</div>
+            <div class="muted">{a.desc}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-2">
+        {content.home.productEntrances.map((p) => (
+          <a class="panel" href={p.href} style="display:block;">
+            <div class="h2">{p.title}</div>
+            <div class="muted">{content.cta.getSpec} →</div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="panel">
+        <div class="h2">{content.nav.applications}</div>
+        <div class="muted" style="display:flex; gap:10px; flex-wrap:wrap;">
+          {content.home.industries.map((x) => (
+            <span style="padding:6px 10px; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,0.03);">
+              {x}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

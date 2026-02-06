@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../../lib/siteContent';
+
+const lang = 'en' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/en/products/custom-capability/';
+const alternates = { cn: '/cn/products/custom-capability/', en: '/en/products/custom-capability/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName} | Custom Capability`}
+  description="Custom manufacturing and fit-for-purpose adaptation for your working conditions."
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">Custom Capability</div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">What we customize</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>Load rating and safety factor</div>
+            <div>Dimensions, length, end fittings</div>
+            <div>Material, heat treatment, surface finish</div>
+            <div>Accessory list and labeling</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="h2">Info to share</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>Working conditions and application</div>
+            <div>Target load and duty cycle</div>
+            <div>Machine model, interface sizes, or drawings</div>
+            <div>Lead time and destination</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a class="btn btn-accent" href="/en/contact/">{content.cta.contact}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

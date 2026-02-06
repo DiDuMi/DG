@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../../lib/siteContent';
+
+const lang = 'cn' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/cn/products/wire-rope-sling/';
+const alternates = { cn: '/cn/products/wire-rope-sling/', en: '/en/products/wire-rope-sling/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName}｜钢丝绳索具`}
+  description="钢丝绳索具系列与参数说明，支持 PDF 下载与定制。"
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">钢丝绳索具</div>
+      <div class="muted" style="max-width:860px;">
+        按系列提供参数说明与选型建议，不展示实时价格。可按载荷、长度、端部形式与工况要求定制。
+      </div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">产品类型</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>单肢/多肢钢丝绳索具</div>
+            <div>压制/编织端部</div>
+            <div>吊装配件组合</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="h2">参数与下载</div>
+          <div class="muted" style="display:grid; gap:10px;">
+            <a class="btn" href="/downloads/spec-example.pdf" download>{content.cta.getSpec}</a>
+            <div>如需更匹配工况的参数表，请通过“联系我们”获取。</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a class="btn btn-accent" href="/cn/contact/">{content.cta.contact}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

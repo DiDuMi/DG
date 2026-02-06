@@ -1,0 +1,42 @@
+---
+import type { SiteContent } from '../lib/siteContent';
+
+type Props = {
+  content: SiteContent;
+};
+
+const { content } = Astro.props;
+const action = import.meta.env.PUBLIC_FORM_ACTION;
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL || content.contactInfo.email;
+---
+
+{action ? (
+  <form class="panel" method="post" action={action} style="display:grid; gap:12px;">
+    <div class="h2">{content.nav.contact}</div>
+    <label style="display:grid; gap:6px;">
+      <span class="muted">Name</span>
+      <input name="name" required style="padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,0.04); color:var(--text);" />
+    </label>
+    <label style="display:grid; gap:6px;">
+      <span class="muted">Company</span>
+      <input name="company" style="padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,0.04); color:var(--text);" />
+    </label>
+    <label style="display:grid; gap:6px;">
+      <span class="muted">Contact</span>
+      <input name="contact" required style="padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,0.04); color:var(--text);" />
+    </label>
+    <label style="display:grid; gap:6px;">
+      <span class="muted">Message</span>
+      <textarea name="message" rows="5" required style="padding:10px 12px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,0.04); color:var(--text); resize:vertical;"></textarea>
+    </label>
+    <button class="btn btn-accent" type="submit" style="justify-self:start;">{content.cta.contact}</button>
+  </form>
+) : (
+  <div class="panel">
+    <div class="h2">{content.nav.contact}</div>
+    <div class="muted" style="display:grid; gap:10px;">
+      <div>Form endpoint is not configured.</div>
+      {email ? <div>Email: <a href={`mailto:${email}`}>{email}</a></div> : <div>Email: </div>}
+    </div>
+  </div>
+)}

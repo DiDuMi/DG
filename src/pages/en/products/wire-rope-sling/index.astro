@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../../lib/siteContent';
+
+const lang = 'en' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/en/products/wire-rope-sling/';
+const alternates = { cn: '/cn/products/wire-rope-sling/', en: '/en/products/wire-rope-sling/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName} | Wire Rope Sling`}
+  description="Wire rope sling series with clear specifications, PDF download, and customization support."
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">Wire Rope Sling</div>
+      <div class="muted" style="max-width:860px;">
+        Series-based specification with selection guidance. No live pricing. Customization available for load, length, end fittings, and working conditions.
+      </div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">Types</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>Single-leg / multi-leg slings</div>
+            <div>Swaged / hand-spliced ends</div>
+            <div>Hardware combinations</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="h2">Specs</div>
+          <div class="muted" style="display:grid; gap:10px;">
+            <a class="btn" href="/downloads/spec-example.pdf" download>{content.cta.getSpec}</a>
+            <div>For job-specific sheets, contact us with your working conditions.</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a class="btn btn-accent" href="/en/contact/">{content.cta.contact}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

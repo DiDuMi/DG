@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../../lib/siteContent';
+
+const lang = 'cn' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/cn/products/custom-capability/';
+const alternates = { cn: '/cn/products/custom-capability/', en: '/en/products/custom-capability/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName}｜定制与能力`}
+  description="按工况与接口要求进行适配与定制的能力说明。"
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">定制与能力</div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">可定制内容</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>载荷等级与安全系数</div>
+            <div>尺寸、长度、端部形式</div>
+            <div>材料、热处理与表面处理</div>
+            <div>配套清单与包装标识</div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="h2">沟通所需信息</div>
+          <div class="muted" style="display:grid; gap:8px;">
+            <div>使用场景与工况说明</div>
+            <div>目标载荷与使用频率</div>
+            <div>设备型号、接口尺寸或图纸</div>
+            <div>交期与目的地</div>
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;">
+        <a class="btn btn-accent" href="/cn/contact/">{content.cta.contact}</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

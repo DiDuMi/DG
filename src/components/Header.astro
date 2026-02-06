@@ -1,0 +1,32 @@
+---
+import type { Language } from '../lib/i18n';
+import LanguageToggle from './LanguageToggle.astro';
+import type { SiteContent } from '../lib/siteContent';
+
+type Props = {
+  lang: Language;
+  content: SiteContent;
+  hrefCn: string;
+  hrefEn: string;
+};
+
+const { lang, content, hrefCn, hrefEn } = Astro.props;
+---
+
+<header style="position:sticky; top:0; z-index:20; border-bottom:1px solid var(--border); background:rgba(11,18,32,0.68); backdrop-filter: blur(10px);">
+  <div class="container" style="display:flex; align-items:center; justify-content:space-between; padding:14px 20px;">
+    <a href={lang === 'cn' ? '/cn/' : '/en/'} style="display:flex; align-items:baseline; gap:10px;">
+      <span style="font-weight:700; letter-spacing:0.02em;">{content.siteName}</span>
+      <span class="muted" style="font-size:13px;">{content.tagline}</span>
+    </a>
+    <nav style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:flex-end;">
+      <a href={lang === 'cn' ? '/cn/' : '/en/'} class="btn">{content.nav.home}</a>
+      <a href={lang === 'cn' ? '/cn/about/' : '/en/about/'} class="btn">{content.nav.about}</a>
+      <a href={lang === 'cn' ? '/cn/products/' : '/en/products/'} class="btn">{content.nav.products}</a>
+      <a href={lang === 'cn' ? '/cn/applications/' : '/en/applications/'} class="btn">{content.nav.applications}</a>
+      <a href={lang === 'cn' ? '/cn/certifications/' : '/en/certifications/'} class="btn">{content.nav.certifications}</a>
+      <a href={lang === 'cn' ? '/cn/contact/' : '/en/contact/'} class="btn btn-accent">{content.nav.contact}</a>
+      <LanguageToggle current={lang} hrefCn={hrefCn} hrefEn={hrefEn} />
+    </nav>
+  </div>
+</header>

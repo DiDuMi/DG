@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../lib/siteContent';
+
+const lang = 'cn' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/cn/about/';
+const alternates = { cn: '/cn/about/', en: '/en/about/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName}｜${content.nav.about}`}
+  description="公司简介、主营业务与工厂能力概览。"
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">{content.nav.about}</div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">公司简介</div>
+          <div class="muted">固顿聚焦钢丝绳索具与桩机配件的制造与配套，服务工程建设与重型施工场景。</div>
+        </div>
+        <div class="panel">
+          <div class="h2">核心原则</div>
+          <div class="muted">安全、质量与可追溯；以长期合作为导向，提供清晰参数与稳定交付。</div>
+        </div>
+      </div>
+      <div class="grid grid-2" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">能力与设备</div>
+          <div class="muted">生产、质检与仓储能力展示位，可替换为工厂实拍与检验流程图片。</div>
+        </div>
+        <div class="panel">
+          <div class="h2">资质与合规</div>
+          <div class="muted">证书、检测报告与项目案例建议集中在“资质与案例”页面统一呈现。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

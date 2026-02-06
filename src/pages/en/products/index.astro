@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../lib/siteContent';
+
+const lang = 'en' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/en/products/';
+const alternates = { cn: '/cn/products/', en: '/en/products/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName} | ${content.nav.products}`}
+  description="Series-based listing with PDF specifications. No live pricing; focus on fit-for-purpose and customization."
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">{content.nav.products}</div>
+      <div class="muted" style="max-width:860px;">
+        Products are presented by series. No live pricing. Specifications are provided as downloadable PDFs with support for customization.
+      </div>
+      <div class="grid grid-3" style="margin-top:16px;">
+        <a class="panel" href="/en/products/wire-rope-sling/" style="display:block;">
+          <div class="h2">Wire Rope Sling</div>
+          <div class="muted">{content.cta.getSpec} →</div>
+        </a>
+        <a class="panel" href="/en/products/piling-machine-parts/" style="display:block;">
+          <div class="h2">Piling Machine Parts</div>
+          <div class="muted">{content.cta.getSpec} →</div>
+        </a>
+        <a class="panel" href="/en/products/custom-capability/" style="display:block;">
+          <div class="h2">Custom Capability</div>
+          <div class="muted">{content.cta.contact} →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

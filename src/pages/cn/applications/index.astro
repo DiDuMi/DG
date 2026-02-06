@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getSiteContent } from '../../../lib/siteContent';
+
+const lang = 'cn' as const;
+const content = getSiteContent(lang);
+const canonicalPath = '/cn/applications/';
+const alternates = { cn: '/cn/applications/', en: '/en/applications/' };
+---
+
+<BaseLayout
+  lang={lang}
+  title={`${content.siteName}｜${content.nav.applications}`}
+  description="不同行业与场景的使用方式与经验概览。"
+  canonicalPath={canonicalPath}
+  alternates={alternates}
+>
+  <section class="section">
+    <div class="container">
+      <div class="h1">{content.nav.applications}</div>
+      <div class="grid grid-3" style="margin-top:16px;">
+        <div class="panel">
+          <div class="h2">桩基础工程</div>
+          <div class="muted">强调设备适配、易损件寿命与现场维护便利性。</div>
+        </div>
+        <div class="panel">
+          <div class="h2">吊装工程</div>
+          <div class="muted">强调载荷等级、端部形式与安全系数。</div>
+        </div>
+        <div class="panel">
+          <div class="h2">重型施工</div>
+          <div class="muted">强调可靠性、交付稳定性与技术沟通效率。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
